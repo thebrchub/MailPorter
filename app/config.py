@@ -95,7 +95,7 @@ gmail_configs = {
         port=587,
         username=os.getenv("GMAIL_IRB_TECHNOLOGY_USERNAME", "default_gmail"),
         password=os.getenv("GMAIL_IRB_TECHNOLOGY_PASSWORD", "default_password"),
-        bcc_list=["thebrcexplorers@gmail.com"],
+        bcc_list=["irbtechnology25@gmail.com"],
         template="irb_technology_template.html"
     )
 }
