@@ -89,6 +89,14 @@ gmail_configs = {
         password=os.getenv("GMAIL_ZQUAB_PASSWORD", "default_password"),
         bcc_list=["info@zquab.com"],
         template="zquab_template.html"
+    ),
+    "irb_technology": SMTPConfig(
+        host="smtp.gmail.com",
+        port=587,
+        username=os.getenv("GMAIL_IRB_TECHNOLOGY_USERNAME", "default_gmail"),
+        password=os.getenv("GMAIL_IRB_TECHNOLOGY_PASSWORD", "default_password"),
+        bcc_list=["thebrcexplorers@gmail.com"],
+        template="irb_technology_template.html"
     )
 }
 
@@ -146,7 +154,9 @@ settings = Settings(
         "http://127.0.0.1:5500",
         "https://www.thebrchub.tech",
         "www.thebrchub.tech/:1",
-        "https://powerbird-elevators.brchub.me"
+        "https://powerbird-elevators.brchub.me",
+        "https://irbtechnology.com",
+        "https://www.irbtechnology.com"
     ],
     server_port=8000  # Updated port number
 )

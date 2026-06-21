@@ -44,6 +44,9 @@ class SMTPSender(AbstractEmailSender):
             # Gmail + zquab should send as info@zquab.com
             from_email = "info@zquab.com"
             from_name = "zQuab"
+        elif self.config.host == "smtp.gmail.com" and self.config.template == "irb_technology_template.html":
+            from_email = self.config.username
+            from_name = "IRB Technology Pvt Ltd"
         else:
             # Default: use SMTP username
             from_email = self.config.username

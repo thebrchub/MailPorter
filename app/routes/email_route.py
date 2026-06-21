@@ -78,12 +78,18 @@ async def send_email(
         if key not in reserved_field_names
     }
     user_email = (payload_dict.get("user_email") or payload.email or "").strip() or None
+    lead_email = user_email or payload.email
+    company = extra_fields.get("company") or extra_fields.get("company_name") or "Not provided"
+    service = extra_fields.get("service") or payload.services_text() or "Not specified"
     context = {
         "name": payload.name,
         "message": payload.message,
         "mobile": payload.mobile,
         "email": payload.email,
         "user_email": user_email,
+        "lead_email": lead_email,
+        "company": company,
+        "service": service,
         "services": payload.services_text(),
         "fields": extra_fields,
         "fields_extra": extra_fields_filtered,
@@ -95,6 +101,8 @@ async def send_email(
         default_subject = "New Inquiry from PowerBird Elevators Website"
     elif payload.brand.lower() == "zquab" or smtp_config.template == "zquab_template.html":
         default_subject = "Welcome to zQuab - We are opening soon"
+    elif payload.brand.lower() == "irb_technology" or smtp_config.template == "irb_technology_template.html":
+        default_subject = "New Lead - IRB Technology"
     subject = (payload_dict.get("subject") or "").strip() or default_subject
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)
     if result.get("status") == "error":

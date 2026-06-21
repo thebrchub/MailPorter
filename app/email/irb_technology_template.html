@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Lead - IRB Technology</title>
+    <style>
+        /* Reset styles for email clients */
+        body, p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+        body { background-color: #f8fafc; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        table { border-collapse: collapse; width: 100%; }
+        img { border: 0; outline: none; text-decoration: none; display: block; }
+        a { color: #f58220; text-decoration: none; }
+    </style>
+</head>
+<body style="background-color: #f8fafc; padding: 40px 20px;">
+
+    <table align="center" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin: 0 auto;">
+        
+        <tr>
+            <td style="background-color: #0f172a; padding: 40px 30px; text-align: center; border-bottom: 4px solid #f58220;">
+                
+                <h2 style="color: #f58220; font-size: 18px; font-weight: 900; letter-spacing: 1.5px; margin: 0 auto 24px auto; text-transform: uppercase;">
+                    IRB TECHNOLOGY PVT LTD
+                </h2>
+
+                <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Service Inquiry</h1>
+                <p style="color: #94a3b8; font-size: 14px; margin-top: 8px; font-family: monospace; letter-spacing: 2px;">SECURE_SESSION_ACTIVE</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 40px 30px;">
+                <p style="color: #334155; font-size: 16px; line-height: 24px; margin-bottom: 30px;">
+                    Hello Team,<br><br>
+                    A new prospect has requested an audit or service via the IRB Technology website. Here are the securely captured details:
+                </p>
+
+                <table cellpadding="0" cellspacing="0" style="width: 100%; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+                    
+                    <tr>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0; width: 35%;">
+                            <span style="font-size: 12px; color: #64748b; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Full Name</span>
+                        </td>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <span style="font-size: 15px; color: #0f172a; font-weight: 600;">{{ name }}</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <span style="font-size: 12px; color: #64748b; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Email Address</span>
+                        </td>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <a href="mailto:{{ lead_email }}" style="font-size: 15px; color: #f58220; font-weight: 600;">{{ lead_email }}</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <span style="font-size: 12px; color: #64748b; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Company</span>
+                        </td>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <span style="font-size: 15px; color: #0f172a; font-weight: 600;">{{ company }}</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0; background-color: #fffbeb;">
+                            <span style="font-size: 12px; color: #b45309; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Service Requested</span>
+                        </td>
+                        <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0; background-color: #fffbeb;">
+                            <span style="font-size: 15px; color: #92400e; font-weight: bold;">{{ service }}</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="padding: 20px;">
+                            <span style="font-size: 12px; color: #64748b; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Message / Details</span>
+                            <div style="background-color: #ffffff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; font-size: 14px; color: #475569; line-height: 22px; white-space: pre-wrap;">{{ message }}</div>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table align="center" cellpadding="0" cellspacing="0" style="margin-top: 35px;">
+                    <tr>
+                        <td align="center" style="background-color: #f58220; border-radius: 8px;">
+                            <a href="mailto:{{ lead_email }}" style="display: inline-block; padding: 14px 30px; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 8px;">Reply to Lead</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td style="background-color: #f1f5f9; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+                <p style="color: #64748b; font-size: 12px; line-height: 18px; margin-bottom: 10px;">
+                    This is an automated notification generated from the IRB Technology platform.<br>
+                    Please do not share sensitive infrastructure details over unencrypted email.
+                </p>
+                <p style="color: #94a3b8; font-size: 12px; font-weight: 500;">
+                    Developed by <a href="https://www.brchub.tech" target="_blank" style="color: #64748b; text-decoration: underline; font-weight: bold;">BRC HUB LLP</a>
+                </p>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
