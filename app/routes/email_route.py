@@ -52,7 +52,6 @@ async def send_email(
                 detail=f"No SMTP configuration found for brand '{payload.brand}' under provider '{smtp_provider}'."
             )
 
-    sender = SMTPSender(smtp_config)
     payload_dict = payload.dict()
     extra_fields = {
         key: value
@@ -81,6 +80,20 @@ async def send_email(
     lead_email = user_email or payload.email
     company = extra_fields.get("company") or extra_fields.get("company_name") or "Not provided"
     service = extra_fields.get("service") or payload.services_text() or "Not specified"
+    topic = (
+        extra_fields.get("topic")
+        or extra_fields.get("regarding")
+        or extra_fields.get("form_type")
+    )
+    social_profile = (
+        extra_fields.get("social_profile")
+        or extra_fields.get("socialProfile")
+        or extra_fields.get("social_url")
+    )
+    is_zquab_feedback = payload.brand.lower() == "zquab" and topic
+    if is_zquab_feedback:
+        smtp_config = smtp_config.model_copy(update={"template": "zquab_feedback_template.html"})
+    sender = SMTPSender(smtp_config)
     context = {
         "name": payload.name,
         "message": payload.message,
@@ -91,6 +104,8 @@ async def send_email(
         "company": company,
         "service": service,
         "services": payload.services_text(),
+        "topic": topic,
+        "social_profile": social_profile,
         "fields": extra_fields,
         "fields_extra": extra_fields_filtered,
         "payload": payload_dict
@@ -99,6 +114,8 @@ async def send_email(
     # powerbird_template
     if payload.brand.lower() == "powerbird" or smtp_config.template == "powerbird_template.html":
         default_subject = "New Inquiry from PowerBird Elevators Website"
+    elif is_zquab_feedback:
+        default_subject = f"New Feedback - {topic} - zQuab"
     elif payload.brand.lower() == "zquab" or smtp_config.template == "zquab_template.html":
         default_subject = "Welcome to zQuab - We are opening soon"
     elif payload.brand.lower() == "irb_technology" or smtp_config.template == "irb_technology_template.html":

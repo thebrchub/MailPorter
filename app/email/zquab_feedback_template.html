@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zQuab - New Feedback</title>
+</head>
+<body style="margin:0;padding:0;background:#020611;font-family:Arial,sans-serif;color:#ffffff;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#020611;padding:28px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="680" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:680px;border:1px solid #133a8a;border-radius:18px;overflow:hidden;background:#040b1f;">
+          <tr>
+            <td style="padding:24px 20px 12px 20px;text-align:center;background:
+              radial-gradient(circle at 20% 10%, rgba(61,133,255,0.28) 0%, rgba(61,133,255,0) 46%),
+              radial-gradient(circle at 80% 85%, rgba(70,103,255,0.2) 0%, rgba(70,103,255,0) 40%),
+              linear-gradient(180deg, #030816 0%, #02040b 100%);">
+              <p style="margin:0 0 8px 0;font-size:40px;font-weight:800;letter-spacing:0.2px;line-height:1.1;">
+                <span style="color:#2f7dff;">z</span><span style="color:#ffffff;">Quab</span>
+              </p>
+              <p style="margin:0;color:#6b8ccf;font-size:11px;letter-spacing:3px;text-transform:uppercase;">
+                New Feedback Received
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:28px;background:linear-gradient(180deg, rgba(5,14,34,0.96) 0%, rgba(2,6,17,1) 100%);">
+              <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:#d9e6ff;">
+                A user submitted feedback through the zQuab website.
+              </p>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #1e5dc3;border-radius:14px;overflow:hidden;background:#04173a;">
+                <tr>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;width:34%;">
+                    <span style="font-size:11px;color:#6b8ccf;font-weight:bold;text-transform:uppercase;letter-spacing:1.2px;">What is this regarding?</span>
+                  </td>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;">
+                    <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:linear-gradient(90deg,#1e5dc3 0%,#3f86ff 100%);font-size:14px;font-weight:700;color:#ffffff;">
+                      {{ topic or "General Feedback" }}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;">
+                    <span style="font-size:11px;color:#6b8ccf;font-weight:bold;text-transform:uppercase;letter-spacing:1.2px;">Email Address</span>
+                  </td>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;">
+                    <a href="mailto:{{ lead_email }}" style="font-size:15px;color:#58a6ff;font-weight:600;text-decoration:none;">{{ lead_email }}</a>
+                  </td>
+                </tr>
+                {% if social_profile %}
+                <tr>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;">
+                    <span style="font-size:11px;color:#6b8ccf;font-weight:bold;text-transform:uppercase;letter-spacing:1.2px;">Social Profile</span>
+                  </td>
+                  <td style="padding:14px 18px;border-bottom:1px solid #133a8a;">
+                    <a href="{{ social_profile }}" style="font-size:14px;color:#58a6ff;text-decoration:none;word-break:break-all;">{{ social_profile }}</a>
+                  </td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td colspan="2" style="padding:18px;">
+                    <span style="font-size:11px;color:#6b8ccf;font-weight:bold;text-transform:uppercase;letter-spacing:1.2px;display:block;margin-bottom:10px;">Your Message</span>
+                    <div style="background:#020611;border:1px solid #133a8a;border-radius:10px;padding:16px;font-size:15px;line-height:1.6;color:#e6edff;white-space:pre-wrap;">{{ message }}</div>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto 0 auto;">
+                <tr>
+                  <td style="border-radius:12px;background:linear-gradient(90deg,#1e5dc3 0%,#3f86ff 100%);">
+                    <a href="mailto:{{ lead_email }}" style="display:inline-block;padding:12px 24px;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;">Reply to User</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:16px 12px;text-align:center;background:#01040d;border-top:1px solid #102b64;">
+              <p style="margin:0;font-size:11px;letter-spacing:1.6px;color:#4f6ba1;text-transform:uppercase;">
+                2026 ZQUAB | FEEDBACK NOTIFICATION
+              </p>
+              <p style="margin:8px 0 0 0;font-size:12px;color:#5f79ad;">
+                Sent by zQuab - info@zquab.com
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
