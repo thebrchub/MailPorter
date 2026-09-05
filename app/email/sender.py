@@ -33,12 +33,12 @@ class SMTPSender(AbstractEmailSender):
             from_email = "info@legalvala.com"
             from_name = "Legalvala"
         elif self.config.host == "smtp.gmail.com" and self.config.template in {"brchub_v2.html", "brchub_template.html"}:
-            # NEW: Gmail + brchub should send as info@thebrchub.tech
-            from_email = "info@thebrchub.tech"
+            # NEW: Gmail + brchub should send as info@brchub.tech
+            from_email = "info@brchub.tech"
             from_name = "BRC Hub LLP"
         elif self.config.host == "smtp.gmail.com" and self.config.template == "powerbird_template.html":
-            # Gmail + powerbird should send as alias info@thebrchub.tech
-            from_email = "info@thebrchub.tech"
+            # Gmail + powerbird should send as alias info@brchub.tech
+            from_email = "info@brchub.tech"
             from_name = "PowerBird Elevators"
         elif self.config.host == "smtp.gmail.com" and self.config.template in {"zquab_template.html", "zquab_feedback_template.html"}:
             # Gmail + zquab should send as info@zquab.com

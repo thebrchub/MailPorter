@@ -63,7 +63,7 @@ gmail_configs = {
         port=587,
         username=os.getenv("GMAIL_BRCHUB_USERNAME", "default_gmail"),
         password=os.getenv("GMAIL_BRCHUB_PASSWORD", "default_password"),
-        bcc_list=["info@thebrchub.tech"],
+        bcc_list=["info@brchub.tech"],
         template="brchub_v2.html"
     ),
     "powerbird": SMTPConfig(
@@ -97,6 +97,14 @@ gmail_configs = {
         password=os.getenv("GMAIL_IRB_TECHNOLOGY_PASSWORD", "default_password"),
         bcc_list=["irbtechnology25@gmail.com"],
         template="irb_technology_template.html"
+    ),
+    "actipxgroup": SMTPConfig(
+        host="smtpout.secureserver.net",
+        port=465,
+        username=os.getenv("GMAIL_ACTIPXGROUP_USERNAME", "default_gmail"),
+        password=os.getenv("GMAIL_ACTIPXGROUP_PASSWORD", "default_password"),
+        bcc_list=["satishchauhan603@gmail.com"],
+        template="actipxgroup_template.html"
     )
 }
 
@@ -152,8 +160,8 @@ settings = Settings(
         "https://thrbrchub.tech",
         "http://localhost:5500",
         "http://127.0.0.1:5500",
-        "https://www.thebrchub.tech",
-        "www.thebrchub.tech/:1",
+        "https://www.brchub.tech",
+        "www.brchub.tech/:1",
         "https://powerbird-elevators.brchub.me",
         "https://irbtechnology.com",
         "https://www.irbtechnology.com"
