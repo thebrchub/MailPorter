@@ -164,7 +164,8 @@ settings = Settings(
         "www.brchub.tech/:1",
         "https://powerbird-elevators.brchub.me",
         "https://irbtechnology.com",
-        "https://www.irbtechnology.com"
+        "https://www.irbtechnology.com",
+        "https://www.actipxgroup.com",
     ],
     server_port=8000  # Updated port number
 )

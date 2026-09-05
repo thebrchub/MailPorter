@@ -47,6 +47,9 @@ class SMTPSender(AbstractEmailSender):
         elif self.config.host == "smtp.gmail.com" and self.config.template == "irb_technology_template.html":
             from_email = self.config.username
             from_name = "IRB Technology Pvt Ltd"
+        elif self.config.host == "smtpout.secureserver.net" and self.config.template == "actipxgroup_template.html":
+            from_email = self.config.username
+            from_name = "Actipx Group"
         else:
             # Default: use SMTP username
             from_email = self.config.username
