@@ -13,6 +13,7 @@ class SMTPConfig(BaseSettings):
     username: str
     password: str
     auth: bool = True
+    use_ssl: bool = False
     starttls: bool = True
     bcc_list: List[EmailStr] = []       # Unique BCC list for the configuration
     template: str                       # Template file name for the email
@@ -104,7 +105,10 @@ gmail_configs = {
         username=os.getenv("GMAIL_ACTIPXGROUP_USERNAME", "default_gmail"),
         password=os.getenv("GMAIL_ACTIPXGROUP_PASSWORD", "default_password"),
         bcc_list=["satishchauhan603@gmail.com"],
-        template="actipxgroup_template.html"
+        template="actipxgroup_template.html",
+        auth=True,
+        use_ssl=True,
+        starttls=False  # GoDaddy SMTP uses SSL on port 465, so no START
     )
 }
 

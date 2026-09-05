@@ -64,13 +64,19 @@ class SMTPSender(AbstractEmailSender):
         message.attach(MIMEText(html_content, "html"))  # Use "plain" or "html" as needed
 
         try:
-            logging.debug("Connecting to SMTP server %s:%s", self.config.host, self.config.port)
-            server = smtplib.SMTP(self.config.host, self.config.port)
-            server.set_debuglevel(1)  # SMTP internal debug output
-
-            logging.debug("Starting TLS...")
-            if self.config.starttls:
-                server.starttls()
+            logging.debug("Connecting to SMTP server %s:%s (SSL: %s)", self.config.host, self.config.port, getattr(self.config, 'use_ssl', False))
+            
+            # Check if the config requires implicit SSL (Port 465)
+            if getattr(self.config, 'use_ssl', False):
+                server = smtplib.SMTP_SSL(self.config.host, self.config.port)
+                server.set_debuglevel(1)
+            else:
+                server = smtplib.SMTP(self.config.host, self.config.port)
+                server.set_debuglevel(1) 
+                
+                if self.config.starttls:
+                    logging.debug("Starting TLS...")
+                    server.starttls()
 
             logging.debug("Logging in as: %s", self.config.username)
             if self.config.auth:
@@ -82,12 +88,14 @@ class SMTPSender(AbstractEmailSender):
                 recipient,
                 self.config.bcc_list,
             )
+            
             # Use from_email as the envelope sender as well
             server.sendmail(from_email, all_recipients, message.as_string())
             server.quit()
 
             logging.info("Email sent successfully to %s", recipient)
             return {"status": "success", "message": "Email sent successfully."}
+            
         except Exception as e:
             logging.error("Error sending email: %s", str(e))
             return {"status": "error", "message": str(e)}
